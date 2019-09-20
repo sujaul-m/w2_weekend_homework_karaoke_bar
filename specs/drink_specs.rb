@@ -7,10 +7,18 @@ require_relative("../song.rb")
 require_relative("../bar.rb")
 require_relative("../drink.rb")
 
-class RoomTest < MiniTest::Test
+class DrinkTest < MiniTest::Test
 
   def setup
+    @drink = Drink.new("beer", 5.00)
+  end
 
+  def test_drink_has_name
+    assert_equal("beer", @drink.name())
+  end
+
+  def test_drink_has_price
+    assert_equal(5.00, @drink.price())
   end
 
 end

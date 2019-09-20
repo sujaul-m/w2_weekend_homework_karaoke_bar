@@ -1,11 +1,10 @@
 class Bar
 
-  attr_reader :balance, :drink, :price
+  attr_reader :balance, :drink
 
-    def initialize(balance, drink, price)
+    def initialize(balance, drink)
       @balance = balance
-      @drink = drink
-      @price = price
+      @drink = []
     end
 
 
