@@ -10,7 +10,11 @@ require_relative("../drink.rb")
 class SongTest < MiniTest::Test
 
   def setup
+    @song = Song.new("Billie Jean")
+  end
 
+  def test_song_has_name
+    assert_equal("Billie Jean", @song.song_name())
   end
 
 end
