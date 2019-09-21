@@ -20,11 +20,11 @@ class Room
     end
 
     def guest_count
-      return @songs_in_room.count
+      return @guests.count
     end
 
     def add_guest(guest)
-      @songs_in_room << guest
+      @guests << guest
     end
 
 

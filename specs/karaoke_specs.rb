@@ -15,6 +15,8 @@ class KaraokeTest < MiniTest::Test
     @song3 = Song.new("You Rock My World")
     @drink1 = Drink.new("beer", 5.00)
     @drink2 = Drink.new("wine", 3.00)
+    @guest1 = Guest.new("Smooth Criminal", 100.00)
+
     @bar = Bar.new("MJ Bar", 100)
     @room1 = Room.new("Micheal Jackson", 10, 20, @bar)
 
@@ -41,6 +43,7 @@ class KaraokeTest < MiniTest::Test
     @room1.add_song(@song3)
     @bar.add_drink(@drink1)
     @bar.add_drink(@drink2)
+    @room1.add_guest(@guest1)
     p @karaoke.karaoke_room_name
   end
 
