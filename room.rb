@@ -27,6 +27,10 @@ class Room
       @guests << guest
     end
 
+    def remove_guest(guest)
+      @guests.pop()
+    end
+
 
 
 

@@ -58,5 +58,12 @@ class RoomTest < MiniTest::Test
     assert_equal(3, @room1.guest_count())
   end
 
+  def test_can_remove_a_guest
+    @room1.add_guest(@guest1)
+    @room1.add_guest(@guest1)
+    @room1.remove_guest(@guest1)
+    assert_equal(1, @room1.guest_count())
+  end
+
 
 end
