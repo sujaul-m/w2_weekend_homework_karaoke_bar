@@ -34,14 +34,14 @@ class RoomTest < MiniTest::Test
 
   def test_can_add_songs
     @room1.add_song(@song1)
-    assert_equal(1, @room1.song_count)
+    assert_equal(1, @room1.song_count())
   end
 
   def test_can_add_multiple_songs
     @room1.add_song(@song2)
     @room1.add_song(@song3)
     @room1.add_song(@song4)
-    assert_equal(3, @room1.song_count)
+    assert_equal(3, @room1.song_count())
   end
 
 

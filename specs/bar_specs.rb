@@ -26,14 +26,14 @@ class BarTest < MiniTest::Test
 
   def test_can_add_drinks
     @bar.add_drink(@drink1)
-    assert_equal(1, @bar.drink_count)
+    assert_equal(1, @bar.drink_count())
   end
 
   def test_can_add_multiple_drinks
     @bar.add_drink(@drink1)
     @bar.add_drink(@drink2)
     @bar.add_drink(@drink3)
-    assert_equal(3, @bar.drink_count)
+    assert_equal(3, @bar.drink_count())
   end
 
 end
