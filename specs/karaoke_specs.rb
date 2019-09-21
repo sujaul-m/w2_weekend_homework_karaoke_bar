@@ -36,7 +36,7 @@ class KaraokeTest < MiniTest::Test
     assert_equal(1, @karaoke.room_count())
   end
 
-  def test_print_rooms_in_karaoke_bar
+  def test_print_room_details_in_karaoke_bar
     @karaoke.add_room(@room1)
     @room1.add_song(@song1)
     @room1.add_song(@song2)

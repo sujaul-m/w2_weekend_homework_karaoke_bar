@@ -31,7 +31,12 @@ class Room
       @guests.pop()
     end
 
-
+    def max_capacity
+      if @guests = @room_capacity
+        return "Room is Full, Try another room"
+      end
+    end
+  
 
 
 

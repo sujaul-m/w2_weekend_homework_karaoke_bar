@@ -19,7 +19,7 @@ class RoomTest < MiniTest::Test
     @guest1 = Guest.new("Smooth Criminal", 100.00)
 
     bar = Bar.new("MJ Bar", 100)
-    @room1 = Room.new("Micheal Jackson", 10, 20, bar)
+    @room1 = Room.new("Micheal Jackson", 3, 20, bar)
   end
 
   def test_room_has_name
@@ -27,7 +27,7 @@ class RoomTest < MiniTest::Test
   end
 
   def test_room_has_a_capacity
-    assert_equal(10, @room1.room_capacity())
+    assert_equal(3, @room1.room_capacity())
   end
 
   def test_room_has_a_price
@@ -63,6 +63,14 @@ class RoomTest < MiniTest::Test
     @room1.add_guest(@guest1)
     @room1.remove_guest(@guest1)
     assert_equal(1, @room1.guest_count())
+  end
+
+  def test_max_capacity
+    @room1.add_guest(@guest1)
+    @room1.add_guest(@guest1)
+    @room1.add_guest(@guest1)
+    @room1.max_capacity
+    assert_equal("Room is Full, Try another room", @room1.max_capacity())
   end
 
 
