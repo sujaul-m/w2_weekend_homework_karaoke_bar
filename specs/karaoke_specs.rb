@@ -18,7 +18,7 @@ class KaraokeTest < MiniTest::Test
     @guest1 = Guest.new("Smooth Criminal", 100.00)
 
     @bar = Bar.new("MJ Bar", 100)
-    @room1 = Room.new("Micheal Jackson", 10, 20, @bar)
+    @room1 = Room.new("Micheal Jackson", 3, 20, @bar)
 
     @karaoke = Karaoke.new("Karaoke Bar")
   end
@@ -36,15 +36,37 @@ class KaraokeTest < MiniTest::Test
     assert_equal(1, @karaoke.room_count())
   end
 
-  def test_print_room_details_in_karaoke_bar
+  def test_guest_can_purchase_ticket_and_drink_and_room_has_favourite_song
     @karaoke.add_room(@room1)
     @room1.add_song(@song1)
     @room1.add_song(@song2)
     @room1.add_song(@song3)
     @bar.add_drink(@drink1)
+    @bar.add_drink(@drink1)
+    @bar.add_drink(@drink2)
     @bar.add_drink(@drink2)
     @room1.add_guest(@guest1)
-    p @karaoke.karaoke_room_name
+    @karaoke.purchase(@bar, @guest1, @drink2, @room1)
+    # p @karaoke.karaoke_room_name
+    assert_equal("Micheal Jackson", @room1.room_name())
+    assert_equal(3, @room1.song_count())
+    assert_equal(4, @bar.drink_count())
+    assert_equal(1, @room1.guest_count())
+    assert_equal(77.00, @guest1.wallet())
+    assert_equal(123.00, @bar.balance())
+    assert_equal("Whoo", @karaoke.song_check(@guest1, @room1))
+
+  end
+
+  def test_to0_many_guests
+    @karaoke.add_room(@room1)
+    @room1.add_song(@song1)
+    @bar.add_drink(@drink1)
+    @room1.add_guest(@guest1)
+    @room1.add_guest(@guest1)
+    @room1.add_guest(@guest1)
+    @room1.add_guest(@guest1)
+    assert_equal("Room is Full, Try another room", @room1.max_capacity())
   end
 
 end

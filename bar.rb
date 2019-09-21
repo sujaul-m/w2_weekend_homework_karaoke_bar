@@ -16,6 +16,14 @@ class Bar
       @drink << drink
     end
 
+    def sell_drink(drink)
+    @balance += drink.price()
+    end
+
+    def sell_room_ticket(room)
+    @balance += room.room_price()
+    end
+
 
 
 

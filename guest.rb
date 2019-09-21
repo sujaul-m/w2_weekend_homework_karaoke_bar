@@ -7,8 +7,12 @@ class Guest
       @wallet = wallet
     end
 
-    def buy(item) #can be room price or drink
-    @wallet -= item.price()
+    def buy_drink(drink)
+    @wallet -= drink.price()
+    end
+
+    def buy_room_ticket(room)
+    @wallet -= room.room_price()
     end
 
     def cheer
