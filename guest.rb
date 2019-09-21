@@ -11,6 +11,10 @@ class Guest
     @wallet -= item.price()
     end
 
+    def cheer
+      return "Whoo"
+    end
+
 
 
 
