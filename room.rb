@@ -32,11 +32,13 @@ class Room
     end
 
     def max_capacity
-      if @guests = @room_capacity
+      if @room_capacity >= @guests.count()
+        return "Go in"
+      else
         return "Room is Full, Try another room"
       end
     end
-  
+
 
 
 
