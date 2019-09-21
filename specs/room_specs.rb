@@ -16,6 +16,8 @@ class RoomTest < MiniTest::Test
     @song4 = Song.new("Black Or White")
     @song5 = Song.new("Beat It")
 
+    @guest1 = Guest.new("Smooth Criminal", 100.00)
+
     bar = Bar.new("MJ Bar", 100)
     @room1 = Room.new("Micheal Jackson", 10, 20, bar)
   end
@@ -42,6 +44,18 @@ class RoomTest < MiniTest::Test
     @room1.add_song(@song3)
     @room1.add_song(@song4)
     assert_equal(3, @room1.song_count())
+  end
+
+  def test_can_add_guest
+    @room1.add_guest(@guest1)
+    assert_equal(1, @room1.guest_count())
+  end
+
+  def test_can_add_multiple_guests
+    @room1.add_guest(@guest1)
+    @room1.add_guest(@guest1)
+    @room1.add_guest(@guest1)
+    assert_equal(3, @room1.guest_count())
   end
 
 

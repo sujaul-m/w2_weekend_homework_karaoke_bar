@@ -8,6 +8,7 @@ class Room
       @room_price = price
       @bar = bar
       @songs_in_room = []
+      @guests = []
     end
 
     def song_count
@@ -16,6 +17,14 @@ class Room
 
     def add_song(song)
       @songs_in_room << song
+    end
+
+    def guest_count
+      return @songs_in_room.count
+    end
+
+    def add_guest(guest)
+      @songs_in_room << guest
     end
 
 
